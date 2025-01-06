@@ -1,0 +1,1117 @@
+/* Google Fonts Imports */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+:root {
+    --body-color: rgba(250, 250, 250, 1);
+    --color-white: rgba(250, 250, 250, 1);
+    --text-color-second: rgba(38, 37, 37, 1);
+    --first-color: rgba(110, 87, 224, 1);
+    --first-shadow: rgba(0, 0, 0, 0.1);
+
+    --box-color: #fff;
+    --nav-color: #fff;
+    --nav-icon: #000;
+    --logo-color: #000;
+
+    --text-color: #444444;
+    --icon-color: #242526;
+    --mode-color: #ccc;
+}
+
+body {
+    background: var(--body-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+
+/* Dark Mode Variables */
+body.dark {
+    --body-color: black;
+    --box-color: #fff;
+
+    --nav-color: #262425;
+    --color-white: #fff;
+    --text-color: #fff;
+
+    --nav-icon: #fff;
+    --logo-color: #fff;
+    --icon-color: #8749f2;
+    --mode-color: #fff;
+}
+
+/* Dark mode styles with body.dark */
+body.dark .contact__input {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    border: 1px solid #555; /* Darker border for inputs */
+}
+
+body.dark .contact__label {
+    color: #ccc; /* Lighter color for labels */
+}
+
+/* Optional: Dark mode button styling */
+body.dark .btn {
+    background-color: #555; /* Darker button color */
+    color: #fff;
+    border: 1px solid #444; /* Dark border for button */
+}
+
+
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    line-height: 100px;
+    background: var(--nav-color);
+    padding-inline: 10vw;
+    transition: 0.3s;
+}
+
+.nav-logo {
+    position: relative;
+}
+.nav-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--logo-color);
+}
+.nav-menu,
+.nav_menu_list {
+    display: flex;
+    column-gap: 30px; /* Fixed the negative gap */
+}
+
+.nav-menu .nav_list {
+    list-style: none;
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
+}
+
+.nav-menu-btn {
+    display: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--nav-icon);
+}
+
+/* Active Link */
+.active-link {
+    position: relative;
+    color: var(--first-color);
+    transition: 0.3s;
+}
+
+.active-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 2px;
+    background: var(--first-color);
+}
+
+/* Mode Switcher */
+/* Light mode default styles */
+body {
+    background-color:white;
+    color: #000000;
+}
+
+.mode {
+    display: flex;
+    align-items: center;
+    margin-right: -2%;
+}
+
+.moon-sun {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    background: var(--mode-color, #f0f0f0);
+}
+
+#moon,
+#sun {
+    position: absolute;
+    transition: opacity 0.5s ease;
+    font-size: 1.5rem;
+}
+
+#moon {
+    opacity: 1;
+}
+
+#sun {
+    opacity: 0;
+}
+
+body.dark #sun {
+    opacity: 1;
+}
+
+body.dark #moon {
+    opacity: 0;
+}
+
+/* Dark mode styles */
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark .mode {
+    background: var(--mode-color, #333333);
+}
+
+/* Additional styles for the dark mode theme */
+body.dark .nav-menu {
+    background-color: #1e1e1e;
+}
+
+body.dark .footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark .qualification__rounder {
+    background-color: #f39c12;
+}
+
+body.dark .qualification__line {
+    background-color: #f39c12;
+}
+
+/* For buttons and links in dark mode */
+body.dark .button,
+body.dark .footer__link,
+body.dark .nav-menu a {
+    color: #f39c12;
+}
+body.dark .button {
+    background-color: #333333;
+    border: 1px solid #f39c12;
+}
+body.dark .footer__socials a {
+    color: #f39c12;
+}
+
+/* Media queries if needed */
+@media (max-width: 768px) {
+    .mode {
+        margin-right: 0;
+    }
+}
+
+
+/* ----wrapper */
+
+.wrapper{
+    padding-inline: 10vw;
+}
+
+/* --- featured-box ---- */
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 600px;
+}
+/* -----------featured-text----------- */
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 20px;
+    margin-top: 10%;
+}
+
+.featured-text .hello{
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: -25px;
+    color: var(--text-color);
+}
+.featured-name{
+    font-size:50px;
+    font-weight:600;
+    margin-block: 20px;
+    color: #a56cff;
+    margin-bottom: 10px;
+
+}
+.typedtext{
+    font-family: sans-serif;
+    color: #9b63fd;
+    font-size: 8px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+}
+.text-info{
+    font-size:15px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+.text-btn{
+    display: flex;
+    border-radius: 12px;
+    cursor: pointer;
+    gap: 30px;
+}
+
+.text-btn .btn{
+    border:none;
+    color: #f4f4f4;
+    box-shadow: 0px 0px 5px 1px rgba(148, 7, 7, 0.1) ;
+
+}
+.hire-btn {
+    font-size: 15px;
+    cursor: pointer;
+    background:#8749f2 ;
+    color: #f4f4f4;
+    border-radius: 15%;
+    border: 2px solid white;
+    padding: 10px;
+    font-weight: 500;
+
+}
+.btn{
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    background:#8749f2 ;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+.btn i{
+    margin-right: 10px;
+
+}
+i{
+    font-size: 16px;
+}
+
+/* --------------social icons--------------- */
+
+.social-icons {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 5px;
+    gap: 32px;
+    position: relative;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--icon-color);
+    border-radius: 50%;
+    box-shadow: 0px 1px 5px 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.icon-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+   
+}
+
+
+
+
+/* ---------featured-image */
+.featured-image {
+    display: flex;
+    justify-content: flex-end; /* Adjust alignment */
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+}
+
+.image {
+    margin-top: -10%;
+    width: 200px; /* Reduced width */
+    height: 300px; /* Reduced height */
+    border-radius: 20%; /* Reduced border-radius to make it less circular */
+    overflow: hidden;
+    animation: imgFloat 5s ease-in-out infinite; /* Fixed animation name */
+}
+
+.image img {
+    width: 100%; /* Make the image take full width of the container */
+    height: 100%; /* Make the image take full height of the container */
+    object-fit: cover; /* Ensure the image fits within the container */
+}
+
+@keyframes imgFloat {
+    50% {
+        transform: translateY(20px); /* Reduced translateY to make the float effect smaller */
+    }
+}
+
+
+/* ------main----- */
+
+.section{
+    padding-block: 5rem;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+.col{
+    display: flex;
+    width: 50%;
+}
+.top-header{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.top-header h1{
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+/* -------about-info------- */
+.about-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-inline:35px ;
+    border: 2px solid #fff;
+    background: transparent;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow);
+    border-radius: 20px;
+}
+
+.about-me *{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+}
+.about-info figurecaption {
+    width: 100%;
+    padding: 25px;
+    position: relative;
+}
+.about-me .profile{
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 20px;
+    z-index: 1;
+    background-color: #fff;
+    max-width: 90px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+
+}
+.about-me h2{
+    color: var(--text-color);
+
+}
+.about-me p{
+    margin-top: 10px;
+    color: var(--text-color);
+}
+.about-info .about-me-btn{
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: #8749f2;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+/* ----------skill box------ */
+.skill{
+    position: relative;
+    max-width :600px;
+    width:100%;
+    background:transparent;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow);
+    padding: 10px 20px ;
+    border: 2px solid #fff;
+    border-radius: 20px;
+
+}
+.skill-box .tittle{
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.skill-box .skill-bar{
+    height: 6px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba(0,0,0,0.1);
+}
+
+.skill-box .skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 90%;
+    border-radius: 5px;
+    background: rgb(111, 111, 205);
+    animation: progress 0.4s ease-in-out forwards;
+    opacity: 0;
+}
+
+.skill-bar.html .skill-per { /* Corrected the selector */
+    animation-delay: 0.1s;
+    width: 95%;
+}
+
+.skill-bar-css .skill-per { /* Corrected the selector */
+    animation-delay: 0.1s;
+    width: 80%;
+}
+
+.skill-bar.python .skill-per { /* Corrected the selector */
+    animation-delay: 0.1s;
+    width: 70%;
+}
+
+.skill-bar.java .skill-per { /* Corrected the selector */
+    animation-delay: 0.1s;
+    width: 65%;
+}
+
+.skill-bar.javascript .skill-per { /* Corrected the selector */
+    animation-delay: 0.1s;
+    width: 75%;
+}
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.skill-per .tooltip{
+    position: absolute;
+    right: -10px; 
+    top: -20px;
+   font-size: 10px;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 20px;
+    background: #8749f2;
+    z-index: 1;
+
+}
+
+/* Education Section */
+/* Education Section */
+/* Education Section */
+/* Qualification Section */
+/* Qualification Section */
+/* Qualification Section */
+/* Qualification Section */
+/* Qualification Section */
+.section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.section__subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Qualification Container */
+.qualification__container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    position: relative;
+}
+
+/* Qualification List with Vertical Timeline */
+.qualification__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/* Timeline Line */
+/* Qualification Section */
+.section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.section__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.section__subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Qualification Container */
+.qualification__container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+}
+
+/* Qualification List - No Timeline */
+.qualification__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Individual Qualification Item */
+.qualification__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+/* Qualification Info Box */
+.qualification__info {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Text Styling with Reduced Font Sizes */
+.qualification__title {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.qualification__subtitle {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.qualification__calender {
+    font-size: 0.85rem;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.qualification__calender i {
+    font-size: 0.85rem;
+    color: #007bff;
+}
+
+/* Dark mode styles for qualification boxes */
+body.dark .qualification__info {
+    background-color: #333; /* Dark background for qualification boxes */
+    color: #fff; /* Light text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for contrast */
+}
+
+/* Dark mode text styling */
+body.dark .qualification__title {
+    color: #fff; /* Light color for title text */
+}
+
+body.dark .qualification__subtitle {
+    color: #ccc; /* Slightly lighter color for subtitle */
+}
+
+body.dark .qualification__calender {
+    color: #aaa; /* Slightly lighter color for calendar text */
+}
+
+body.dark .qualification__calender i {
+    color: #8749f2; /* Icon color in dark mode */
+}
+/* ---------project-Box ------------*/
+
+
+.project-container { /* Fixed typo here */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    height: 250px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow);
+    overflow: hidden;
+    cursor: pointer;
+    /* Ensures content is above the pseudo-element */
+    z-index: 1;
+}
+
+.project-box > i {
+    font-size: 30px;
+    color: #6114e8;
+    margin-bottom: 15px;
+}
+
+.project-box label {
+    font-size: 13px;
+    color: var(--text-color);
+}
+
+.project-box::after {
+    content: "";
+    position: absolute;
+    bottom: -100%; /* Moves the pseudo-element below the visible area */
+    background: #8749f2;
+    width: 100%;
+    height: 100%;
+    transition: bottom 0.4s; /* Ensures smooth transition */
+    z-index: 0; /* Positioned behind content */
+}
+
+.project-box:hover::after {
+    bottom: 0; /* Moves the pseudo-element up on hover */
+}
+
+.project-box:hover > i,
+.project-box:hover > h3,
+.project-box:hover > label {
+    color: #766464;
+    z-index: 2; /* Ensures text is above the pseudo-element */
+}
+
+.top-header span {
+    color: var(--text-color);
+}
+
+/* -------contact-box-------- */
+
+/* Add margin to the first contact content */
+.contact__content:first-of-type {
+    margin-top: 10px; /* Add top margin to the first row */
+}
+
+
+.contact-box{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    padding: 20px 40px;
+    width: 100%;
+    height: 380px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    box-shadow:1px 8px 10px 2px var(--first-shadow);
+    overflow: hidden;
+    cursor: pointer;
+
+}
+.contact-info >h2{
+    color: var(--text-color);
+    margin-bottom: 20px;
+
+}
+
+.contact-info >p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    margin-block: 5px;
+}
+.contact-info::after{
+    color: #8749f2;
+}
+.contact-info:hover.contact-info h2,
+.contact-info:hover.contact-info p,
+.contact-info:hover.contact-info i{
+    color: #574949;
+    z-index: 2;
+}
+
+/* ------contact form------ */
+
+/* Contact Section Styles */
+/* Contact Form */
+.contact__form {
+
+    display: grid;
+    gap: 2rem; /* Space between form elements */
+    max-width: 600px; /* Optional: Set a max-width for the form */
+    margin: 0 auto; /* Center the form */
+}
+
+/* Contact Content */
+.contact__content {
+    display: flex; /* Use flexbox for each label/input pair */
+    justify-content: space-between; /* Space between label and input */
+    align-items: center; /* Center align items vertically */
+}
+
+/* Label Styling */
+.contact__label {
+    margin-right: 1rem; /* Space between label and input */
+    font-weight: bold; /* Make label bold */
+    color: #333; /* Label color */
+    flex-basis: 30%; /* Adjust label width (optional) */
+}
+
+/* Input Styling */
+.contact__input {
+    padding: 0.75rem; /* Padding inside input fields */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    flex-grow: 1; /* Make input take available space */
+}
+
+/* Button Styling */
+.button {
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Button text color */
+    padding: 0.75rem 1.5rem; /* Padding for the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Center icon vertically */
+}
+
+.button--flex {
+    justify-content: center; /* Center button text */
+}
+
+.button__icon {
+    margin-left: 0.5rem; /* Space between text and icon */
+}
+
+.button--flex {
+    justify-content: center; /* Center button text */
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btin {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 2rem;
+    margin-left: 5rem; /* Optional: Add some spacing above the button */
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* ----footer-box------- */
+
+/* ----footer-box------- */
+
+/* Footer Styles */
+/* Footer Styles */
+.footer {
+    padding: 2rem 0;
+    background-color: #6437e0; /* Light blue background color */
+    color: #cf6464;
+    text-align: center;
+    width: 100vw; /* Full width for background */
+    margin-left: calc(-50vw + 50%);
+}
+
+.footer_bg {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.footer__subtitle {
+    font-size: 1rem;
+    color: #555;
+}
+
+.footer__links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 8.5rem;
+    padding-left: 25%;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: #220d0d;
+    transition: color 0.3s;
+}
+
+.footer__link:hover {
+    color: #000;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__social {
+    font-size: 1.25rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer__social:hover {
+    color: #000;
+}
+
+.footer__copy {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+
+/* ----------media query=1024px-------- */
+
+@media only screen and (min-width: 1024px) {
+    .featured-text {
+        padding: 0;   
+    }
+    .image,
+    .image img {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* ----------media query=900px-------- */
+
+@media only screen and (max-width: 900px) {
+    .nav-menu-btn {
+        display: none;
+    }
+    .nav-menu.responsive {
+        left: 0;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(250, 250, 250, 0.7);
+        backdrop-filter: blur(5px);
+        width: 300px;
+        border-radius: 0 30px 0 30px;
+        min-height: 450px;
+        height: 100vh;
+        transition: 0.3s;
+    }
+    .nav-menu-list {
+        flex-direction: column;
+    }
+    .nav-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .featured-box {
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+    .featured-text {
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 60vh;
+    }
+    .social-icons {
+        margin-top: 2em;
+    }
+    .featured-image {
+        order: 1;
+        justify-content: center;
+        min-height: 150px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .image,
+    .image img {
+        width: 150px;
+        height: 150px;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info,
+    .contact-info {
+        width: 100%;
+    }
+    .project-container {
+        justify-content: center;
+    }
+    .project-box {
+        width: 80%;
+    }
+    .mode {
+        display: flex;
+        align-items: center;
+        margin-left: 60%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .featured-name {
+        font-size: 40px;
+    }
+    .project-box {
+        width: 100%;
+    }
+    .form-inputs {
+        flex-direction: column;
+    }
+    .input-field {
+        width: 100%;
+    }
+    .mode {
+        margin-left: 50%;
+    }
+}
+
